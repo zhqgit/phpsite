@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Title</title>
+    <script src="index.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .litter{
+            width: 60%;
+            margin: 50px auto 0;
+            /*text-align: center;*/
+        }
+
+        .input{
+            width: 300px;
+            height: 30px;
+            border: 1px solid gray;
+        }
+
+        .btn{
+            width: 60px;
+            height: 32px;
+            background-color: rgb(77, 122, 250);
+            border:1px #fff solid;
+            cursor: pointer;
+
+        }
+
+        .tips{
+            text-indent: 103px;
+            margin-top: 5px;
+            height: 20px;
+        }
+
+        .length,.password,.conpwd,.email{
+            margin-bottom: 50px;
+        }
+
+        .test{
+            display: inline-block;
+            width: 100px;
+        }
+
+        .title{
+            float: right;
+        }
+
+        .con{
+            display: inline-block;
+            margin-right: -30px;
+            padding-right: 30px;
+        }
+
+        .con2{
+            margin-right: -30px;
+        }
+    </style>
+</head>
+<body>
+<form action="signIn.php" method="post" class="litter">
+    <div class="length">
+        <label for="">
+            <div class="test">
+                <span class="title">名称：</span>
+            </div>
+            <input type="text" name="username" id="username" class="input">
+            <button class="btn">验证</button>
+        </label>
+        <h6 class="tips"></h6>
+    </div>
+    <div class="password">
+        <label for="">
+            <div class="test">
+                <span class="title">密码：</span>
+            </div>
+            <input type="password" name="password" class="input">
+            <button class="btn">验证</button>
+        </label>
+        <h6 class="tips"></h6>
+    </div>
+    <div class="conpwd">
+        <label for="">
+            <div class="test">
+                <span class="title">确认密码：</span>
+            </div>
+            <input type="text" class="input" disabled="">
+            <button class="btn">验证</button>
+        </label>
+        <h6 class="tips"></h6>
+    </div>
+
+    <div class="email">
+        <label for="">
+            <div class="test">
+                <span class="title">邮箱：</span>
+            </div>
+            <input type="text" class="input" name="email">
+            <button class="btn">验证</button>
+        </label>
+        <h6 class="tips"></h6>
+    </div>
+
+    <div class="phone">
+        <label for="">
+            <div class="test">
+                <span class="title">手机：</span>
+            </div>
+            <input type="text" class="input" name="phone">
+            <button class="btn">验证</button>
+        </label>
+        <h6 class="tips"></h6>
+    </div>
+    <input type="submit" name="sub" value="注册">
+</form>
+
+
+<!--<script>-->
+    <!--window.onload = function () {-->
+        <!--var username = document.getElementById('username');-->
+        <!--console.log(username);-->
+        <!--username.onblur = function () {-->
+            <!--console.log("触发...");-->
+            <!--var request = new XMLHttpRequest();-->
+            <!--request.open("GET", "ajaxUsername.php?username=" + document.getElementById("username").value);-->
+            <!--request.send();-->
+            <!--request.onreadystatechange = function () {-->
+                <!--if (request.readyState === 4) {-->
+                    <!--if (request.status === 200) {-->
+                        <!--// responseText属性包含了从服务器返回的文字信息。这些信息其实就是所请求的页面-->
+<!--//                    document.getElementById("searchResult").innerHTML = request.responseText;-->
+                        <!--console.log(request.responseText);-->
+                    <!--} else {-->
+                        <!--alert("发生错误：" + request.status);-->
+                    <!--}-->
+                <!--}-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+</body>
+</html>
