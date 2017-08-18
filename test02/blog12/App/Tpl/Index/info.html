@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}bootstrap.min.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}normalize.css">
+    <link rel="stylesheet" href="{$Think.const.CSS_URL}user.css">
+</head>
+<body>
+<!--<p>个人信息查询：学号，姓名，年级，班级</p>-->
+<!--<p>修改密码</p>-->
+<!--<p>选课</p>-->
+<!--<p>查看选课信息</p>-->
+<div class="header">dddd</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" id="nav">
+                <li role="presentation"><a href="#">首页</a></li>
+                <li role="presentation"><a href="#">学生信息</a></li>
+                <li role="presentation"><a href="#">已选科目</a></li>
+                <li role="presentation"><a href="#">选课</a></li>
+                <li role="presentation"><a href="#">修改密码</a></li>
+                <li role="presentation"><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container" id="nav-container">
+    <div class="jumbotron">
+        <h1>华南师范大学选课系统</h1>
+        <h2>欢迎您！{$stu['name']}同学</h2>
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
+    </div>
+    <div class="jumbotron" style="display: none;" id="stu-info">
+        <h2>学生个人信息</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学院</th>
+                <th>专业</th>
+                <th>年级</th>
+                <th>班级</th>
+                <th>联系方式</th>
+            </tr>
+            <tr>
+                <td>{$stu['id']}</td>
+                <td>{$stu['name']}</td>
+                <td>{$stu['sex']}</td>
+                <td>{$stu['academy']}</td>
+                <td>{$stu['major']}</td>
+                <td>{$stu['year']}</td>
+                <td>{$stu['class']}</td>
+                <td>{$stu['tel']}</td>
+            </tr>
+        </table>
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">修改个人信息</a></p>-->
+    </div>
+
+    <div class="jumbotron" style="display: none;" id="stu-sub">
+        <h2>学生选课信息表</h2>
+        <table class="table table-striped" id="drop-course">
+            <tr>
+                <th>课程编号</th>
+                <th>课程名</th>
+                <th>开课学期</th>
+                <th>授课教师</th>
+                <th>课时</th>
+                <th>学分</th>
+                <th>上课地点</th>
+                <th>操作</th>
+            </tr>
+            <volist name="course_name" id="data">
+                <tr>
+                    <td>{$data['courseid']}</td>
+                    <td>{$data['coursename']}</td>
+                    <td>{$data['time']}</td>
+                    <td>{$data['teachername']}</td>
+                    <td>{$data['teachtime']}</td>
+                    <td>{$data['credit']}</td>
+                    <td>{$data['location']}</td>
+                    <td><button type="submit" class="btn btn-danger">退选</button></td>
+                </tr>
+            </volist>
+        </table>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+
+    <div class="jumbotron" style="display: none;" id="stu-select">
+        <h2>学生选课信息表</h2>
+        <table class="table table-striped" id="select-course">
+            <tbody>
+                <tr>
+                <th>课程编号</th>
+                <th>课程名</th>
+                <th>开课学期</th>
+                <th>授课教师</th>
+                <th>课时</th>
+                <th>学分</th>
+                <th>上课地点</th>
+                <th>剩余</th>
+                <th>操作</th>
+            </tr>
+            <volist name="course_all" id="data">
+                <tr>
+                    <td>{$data['courseid']}</td>
+                    <td>{$data['coursename']}</td>
+                    <td>{$data['time']}</td>
+                    <td>{$data['teachername']}</td>
+                    <td>{$data['teachtime']}</td>
+                    <td>{$data['credit']}</td>
+                    <td>{$data['location']}</td>
+                    <td>{$data['number']}</td>
+                    <td><button type="submit" class="btn btn-info">选课</button></td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="jumbotron" style="display: none;" id="stu-pwd">
+        <!--<form action="{:U('change_password')}" method="post" style="width: 45%;">-->
+            <div class="form-group">
+                <label for="userid">学号</label>
+                <input type="text" class="form-control" id="userid" placeholder="学号" name="userid">
+            </div>
+            <div class="form-group">
+                <label for="original-pwd">原密码</label>
+                <input type="text" class="form-control" id="original-pwd" placeholder="原密码" name="opwd">
+            </div>
+            <div class="form-group">
+                <label for="new-pwd">新密码</label>
+                <input type="text" class="form-control" id="new-pwd" placeholder="新密码" name="npwd">
+            </div>
+            <div class="form-group">
+                <label for="current-pwd">确认密码</label>
+                <input type="text" class="form-control" id="current-pwd" placeholder="确认密码" name="cpwd">
+            </div>
+            <button type="submit" class="btn btn-default" id="change-btn">提交</button>
+        <p id="searchResult"></p>
+        <!--</form>-->
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
+    </div>
+
+    <div class="jumbotron" style="display: none;" id="stu-out">
+        <h1>Hello, world!3</h1>
+        <p>{$stu['id']}</p>
+        <p>{$stu['name']}</p>
+        <p>{$stu['year']}</p>
+        <p>{$stu['class']}</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        <a href="__URL__/login_out">退出</a>
+    </div>
+</div>
+<script src="{$Think.const.JS_URL}info.js"></script>
+</body>
+</html>
